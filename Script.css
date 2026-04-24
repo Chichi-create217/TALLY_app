@@ -1,0 +1,245 @@
+:root {
+    --bg-color: #2a2d34; /* Dark grey background */
+    --card-bg: #3b4048; /* Slightly lighter grey for cards */
+    --text-primary: #f5f6fa;
+    --text-secondary: #b2bec3;
+    --green-button: #2ecc71; /* Green button */
+    --green-button-hover: #27ae60;
+    --danger-color: #ff4757;
+    --border-color: #4a505c;
+}
+
+body {
+    margin: 0;
+    /* Pretty handwriting font for everything */
+    font-family: 'Caveat', cursive;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 24px;
+}
+
+.container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    /* The name TALLY in cursive */
+    font-family: 'Dancing Script', cursive;
+    font-size: 72px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--green-button);
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 28px;
+    color: var(--text-secondary);
+    margin: 5px 0 0 0;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin: 0 0 15px 0;
+    font-size: 36px;
+    color: var(--green-button);
+}
+
+.input-area {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 26px;
+    font-family: 'Caveat', cursive;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--green-button);
+}
+
+input::placeholder {
+    color: #7f8fa6;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 26px;
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    /* Green button */
+    background-color: var(--green-button);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2);
+}
+
+button:hover {
+    background-color: var(--green-button-hover);
+    transform: translateY(-2px);
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: 0.3s ease;
+}
+
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.custom-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.custom-checkbox::after {
+    content: '✔';
+    font-size: 18px;
+    color: var(--bg-color);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: 0.2s ease;
+}
+
+.checked .custom-checkbox {
+    background-color: var(--green-button);
+    border-color: var(--green-button);
+}
+
+.checked .custom-checkbox::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.item-text {
+    font-size: 28px;
+    transition: 0.3s ease;
+}
+
+/* Check things off */
+.checked .item-text {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.delete-btn {
+    background-color: transparent;
+    color: var(--danger-color);
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 26px;
+    box-shadow: none;
+}
+
+.delete-btn:hover {
+    background-color: rgba(255, 71, 87, 0.1);
+    transform: none;
+}
+
+.disabled-block {
+    opacity: 0.6;
+}
+
+.coming {
+    color: var(--text-secondary);
+    font-size: 26px;
+    margin: 0;
+}
+
+/* --- Table Styles --- */
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+
+th {
+    background-color: var(--green-button);
+    color: white;
+    font-weight: 600;
+    font-size: 26px;
+}
+
+td {
+    background-color: var(--bg-color);
+    transition: background-color 0.2s;
+}
+
+td[contenteditable="true"]:focus {
+    outline: none;
+    background-color: var(--card-bg);
+    box-shadow: inset 0 0 5px var(--green-button);
+}
+
+/* Style the first column (Time/Period) */
+td:first-child {
+    font-weight: 600;
+    color: var(--green-button);
+    background-color: var(--card-bg);
+    width: 100px;
+}
